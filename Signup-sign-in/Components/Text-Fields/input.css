@@ -1,0 +1,43 @@
+:host {
+    display:flex;
+}
+
+input {
+    cursor: auto;
+    font-size: var(--text-lg);
+    color: var(--color-blue-500);
+    width: 100%;
+    height: 45px;
+    line-height: var(--text-sm-line-height);
+    padding-left: calc(var(--spacing) * 10);
+    padding-inline: calc(var(--spacing) * 15);
+    padding-block: calc(var(--spacing) * 1);
+    display: flex;
+    min-width: var(--spacing);
+    border-width: 1px;
+    border-radius: calc(var(--radius) + 4px);
+    border-style: var(--border-style);
+    border-color: var(--color-gray-200);
+    background-color: var(--input-background);
+    transition-property: color, box-shadow;
+    transition-duration: var(--duration, var(--deafault-transition-duration));
+    transition-timing-function: var(--ease, var(--default-transition-timing-function));
+
+    &:focus {
+        outline: none;
+        border : 3px double var(--color-blue-500);
+        transition: box;
+        filter: drop-shadow(var(--drop-shadow));
+    }
+}
+
+::placeholder {
+    color: var(--color-gray-400);
+}
+
+.variant-tempmail {
+    background-image: url("../../Assets/Icons/Tempmail.png") !important;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 97% center;
+}

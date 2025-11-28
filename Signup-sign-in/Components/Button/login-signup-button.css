@@ -1,0 +1,82 @@
+:host {
+     width: auto;
+     display: inline-flex;
+}
+
+.button {
+    display:inline-flex;
+    color: oklch(0.446 0.03 256.802);
+    font-size: var(--text-lg);
+    line-height: var(--text-sm--line-height);
+    padding-block: calc(var(--spacing) * 1);
+    padding-inline: calc(var(--spacing));
+    border-style: var(--border-style);
+    border-color: transparent;
+    border-width: 1px;
+    border-radius: var(--radius);
+    height: calc(100% - 1px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ease, var(--default-transition-timing-function));
+    transition-duration: var(--duration, var(--default-transition-duration));
+    gap:calc(var(--spacing) * 1.5);
+    white-space: nowrap;
+    outline: none;
+    background: transparent;
+}
+
+
+ .variant-help, .variant-next {
+    padding-inline: calc(var(--spacing) * 22);
+    font-weight: 600;
+    font-size: 14px;
+    padding-block: calc(var(--spacing) * 8);
+    background-color: var(--background);
+    border-color: var(--color-gray-200);
+    border-radius: calc(var(--radius) + 4px);
+    border-width: 2px;
+    border-style: var(--border-style);
+    gap: calc(var(--spacing) * 2);
+    flex: 1;
+    height: calc(var(--spacing) * 12);
+    margin-top: 15px;
+    color: oklch(21.402% 0.02741 265.092 / 0.872);
+ }
+
+ .variant-next {
+        background: linear-gradient(90deg in oklch, var(--color-yellow-400), var(--color-yellow-500));
+ }
+
+
+/* Hover / focus styles and transitions for button inside shadow DOM */
+.variant-help:hover, .variant-next:hover
+.button:focus,
+.button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.button:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-blue-400) 30%, transparent);
+    outline-offset: 3px;
+}
+
+.button:focus:not(:focus-visible) {
+    outline: 2px solid transparent;
+}
+
+/* Slightly darken variant-next on hover/focus */
+.variant-next:hover,
+.variant-next:focus,
+.variant-next:focus-visible {
+    filter: brightness(0.96);
+}
+
+/* Smooth transitions for interactions */
+.button {
+    transition: transform 160ms cubic-bezier(.4,0,.2,1), filter 160ms linear, box-shadow 160ms linear;
+}
+

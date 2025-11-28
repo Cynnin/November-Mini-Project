@@ -1,0 +1,17 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+    color: var(--foreground);
+    border-radius: calc(var(--spacing) + 8px);
+    border-style: var(--border-style);
+    border-width: 1px;
+    border-color: var(--border);
+    gap:calc(var(--spacing) * 6);
+    padding: calc(var(--spacing) * 8);
+    min-height: var(--card-height);
+    margin-bottom: calc(var(--spacing) * 2);
+    transition-property: box-shadow;
+    transition-duration: var(--duration, var(--default-transition-duration));
+    transition-timing-function: var(--ease, var(--default-transition-timing-function));
+}

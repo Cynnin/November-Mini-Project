@@ -1,0 +1,18 @@
+.cardhead {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-rows: min-content;
+    z-index: auto;
+    padding-bottom: calc(var(--spacing) * 6);
+    padding-top: calc(var(--spacing) * 10);
+    padding-inline: calc(var(--spacing) * 6);
+    gap:calc(var(--spacing) * 1.5);
+    text-align: center;
+    align-items: flex-start;
+    backdrop-filter: var(--blur);
+    line-height: 0;
+    background: #00000000;
+    box-shadow: var(--shadow);
+    align-content: center;
+}
+
