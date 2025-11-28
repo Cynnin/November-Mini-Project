@@ -152,7 +152,7 @@ export class SideBar extends HTMLElement {
       });
     }
 
-    // Logout button - guard with null check
+    //To setup the logout button
     const logoutBtn = this.shadowRoot.querySelector('.logout-button');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
@@ -171,13 +171,13 @@ export class SideBar extends HTMLElement {
       });
     }
 
-  // Nav links: now using <my-button href="..."> elements
+  //Nav links: now using <my-button href="..."> elements
 const links = this.shadowRoot.querySelectorAll('.nav-links my-button');
 if (links && links.length) {
   // Determine current path
   const currentPath = window.location.pathname;
 
-  // Try to mark current location active, otherwise default to first link
+  //Set current location to active, or default to first link
   let matched = false;
 
   links.forEach(link => {
