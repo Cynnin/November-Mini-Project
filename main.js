@@ -1,20 +1,20 @@
-import { Button } from "./Components/Button/button.js"; 
+import { Button } from "./Signup-sign-in/Components/Button/button.js"; 
 customElements.define("my-button", Button);
 
 //For Input-fields
-import { Input } from "./Components/Text-Fields/input.js";
+import { Input } from "./Signup-sign-in/Components/Text-Fields/input.js";
 customElements.define("my-input", Input);
 
 //For the main container
-import { MainContainer } from "./Patterns/Container/maincontainer.js";
+import { MainContainer } from "./Signup-sign-in/Patterns/Container/maincontainer.js";
 customElements.define("main-container", MainContainer);
 
 //For the card/div containing the logo and greetings
-import { HeadCard } from "./Components/GreetingCard/cardheader.js";
+import { HeadCard } from "./Signup-sign-in/Components/GreetingCard/cardheader.js";
 customElements.define("head-card", HeadCard);
 
 //For the form pattern
-import { Tab } from "./Patterns/Tab/tab.js";
+import { Tab } from "./Signup-sign-in/Patterns/Tab/tab.js";
 customElements.define("tab-content", Tab);
 
 //For password validation
