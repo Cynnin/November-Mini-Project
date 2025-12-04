@@ -187,7 +187,7 @@ function handleSignup(e) {
     showErrors([], 'logup');
     
     //To redirect to dashboard
-    window.location.href = '../Completer App/dashboardpage.html';
+    window.location.href = './Completer App/dashboardpage.html';
 }
 
 function handleLogin(e) {
@@ -235,7 +235,7 @@ function handleLogin(e) {
         localStorage.setItem('userId', user.userId);
         localStorage.setItem('isLoggedIn', 'true');
         
-        window.location.href = '../Completer App/dashboardpage.html';
+        window.location.href = './Completer App/dashboardpage.html';
     } else {
         showErrors(['Incorrect password!'], 'login');
     }
@@ -268,7 +268,7 @@ function setupTabs() {
 document.addEventListener("DOMContentLoaded", () => {
     //To check if already logged in
     if (localStorage.getItem('isLoggedIn') === 'true') {
-        window.location.href = '../Completer App/dashboardpage.html';
+        window.location.href = './Completer App/dashboardpage.html';
         return;
     }
 
