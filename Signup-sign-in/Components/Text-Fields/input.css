@@ -36,9 +36,3 @@ input {
     color: var(--color-gray-400);
 }
 
-.variant-tempmail {
-    background-image: url("../../Assets/Icons/Tempmail.png") !important;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: 97% center;
-}
