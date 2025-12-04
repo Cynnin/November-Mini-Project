@@ -29,7 +29,7 @@ function handleSignup(event) {
         console.log("Sign up successful. User data saved to Local Storage.");
 
         //To redirect to the main application dashboard
-        window.location.href = '/November-Mini-Project/dashboardpage.html';
+        window.location.href = '../Completer App/dashboardpage.html';
 
     } catch (error) {
         console.error("Error during sign-up process:", error);

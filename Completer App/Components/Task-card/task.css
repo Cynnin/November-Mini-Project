@@ -26,6 +26,7 @@
 
 
 .task-title {
+    color: var(--color-gray-500);
     font-size: var(--text-lg);
     line-height: var(--text-sm--line-height);
     font-weight: var(--font-weight-semibold);

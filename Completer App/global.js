@@ -465,7 +465,7 @@ function initializeAISummaryView() {
 
     document.removeEventListener('summaryHistoryUpdated', renderSummaryHistory);
 
-    document.addEventListener('summarHistoryUpdated', renderSummaryHistory);
+    document.addEventListener('summaryHistoryUpdated', renderSummaryHistory);
 
     const historyTabButton = document.querySelector('[data-for-tab-history]');
     if (historyTabButton) {
@@ -612,13 +612,13 @@ function loadView(path) {
             container.innerHTML = html;
 
             //To get shared data
-            const sidebarElement = document.querySelector('side-bar');
-            const username = sidebarElement ? sidebarElement.getAttribute('username') : 'User';
+           const { username } = getUserProfile();
 
+           console.log('User profile received:', username);
             //To re-initialize the Greetings component
             const greetingsElement = container.querySelector('greetings-message');
             if (greetingsElement) {
-                greetingsElement.setAttribute('data-name', username);
+                greetingsElement.setAttribute('data-name', username || 'User');
             }
 
             //To call view-specific initialization
