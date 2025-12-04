@@ -1,15 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script type="module" src="./global.js" defer="defer"></script>
-    <link rel="stylesheet" href="./global.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./global.js" defer="defer"></script>
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./Assets/CSS/taskpage.css" />
     <title>Tasks</title>
-</head>
-<body>
-    <main>
-        In Construction...
+  </head>
+  <body>
+    <main class="task-content">
+      <app-card>
+        <div class="general-header">
+          <div class="head-container">
+            <div class="gen-icon uno">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-square-check-big h-5 w-5 flex-shrink-0"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"
+                ></path>
+                <path d="m9 11 3 3L22 4"></path>
+              </svg>
+            </div>
+            <div class="general-text">
+              <div class="gen-title">Task Management</div>
+              <div class="gen-sub">Manage and track your tasks</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gen-container">
+          <tab-content class="content-container">
+            <div slot="inner-container">
+              <div slot="muted" class="mute">
+                <my-button class="button" data-for-tab="mytasks">
+                  <div class="test">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                  <div class="text-wrapper">
+                My Tasks
+                  </div>
+                  </div>
+                </my-button>
+                <my-button class="button" data-for-tab="ai">
+                   <div class="test">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-4 w-4" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                  <div class="text-wrapper">
+                AI Summary
+                  </div>
+                  </div>
+                </my-button>
+              </div>
+              <div slot="tab" data-tab="mytasks" class="tab">
+                <div class="content-head">
+                  <div class="task-info" id="mytasks">
+                    <div class="task-counter">
+                      <div class="task-count">0</div>
+                      <p>Active tasks</p>
+                    </div>
+                    <div class="border"></div>
+                    <div class="task-counter">
+                      <div class="task-count grn">0</div>
+                      <p>Completed</p>
+                    </div>
+                  </div>
+                  <my-button
+                    class="button-wrapper"
+                    data-variant="action-button"
+                    id="add-task"
+                  >
+                    <div class="test">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-plus h-4 w-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5v14"></path>
+                      </svg>
+                      <div class="text-wrapper">Add Task</div>
+                    </div>
+                  </my-button>
+                </div>
+                <div class="task-body">
+                  <div>
+                    <app-card data-variant="colourcard" id="mytasks">
+                      <div class="card-content" id="task-list-container">
+                        <div class="svg-background">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-circle h-12 w-12 text-indigo-300 mx-auto mb-3"
+                            aria-hidden="true"
+                          >
+                            <circle cx="12" cy="12" r="10"></circle>
+                          </svg>
+                          <p class="none">No tasks yet</p>
+                          <p class="instructions">
+                            Click "Add Task" to create your first task
+                          </p>
+                        </div>
+                        <div id="active-tasks-list">
+                         
+                        </div>
+                        <div id="completed-tasks-section">
+                        <p>Completed</p>
+                        <div id="completed-tasks-list">
+                        </div>
+                        </div>
+                      </div>
+                    </app-card>
+                  </div>
+                </div>
+              </div>
+
+              <div slot="tab" data-tab="ai" class="tab">
+                <div class="content-head">
+                  <div class="summary-title">
+                  <div class="gen-title">
+                    AI-Powered Task Summary
+                  </div>
+                  <div class="gen-sub">
+                    Get insights and recommendations for your tasks
+                  </div>
+                  </div>
+                   <my-button
+                    class="button-wrapper"
+                    data-variant="generate-button"
+                    id="add-summary"
+                  >
+                    <div class="test">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-4 w-4" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                      <div class="text-wrapper">Generate New</div>
+                    </div>
+                  </my-button>
+                </div>
+
+ 
+          <tab-content class="content-container">
+            <div slot="inner-container">
+              <div slot="muted" class="mute">
+                <my-button class="button" data-for-tab="latest">
+                  <div class="test">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                  <div class="text-wrapper">
+                Latest Summary
+                  </div>
+                  </div>
+                </my-button>
+                <my-button class="button" data-for-tab="history">
+                   <div class="test">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-4 w-4" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                  <div class="text-wrapper">
+                History
+                  </div>
+                  </div>
+                </my-button>
+                </div>
+
+        <div slot="tab" data-tab="latest" class="tab">
+            <div class="card-content ai-summary-content">
+              <div class="ai-summary-empty-state">
+                
+                <div class="ai-icon-wrapper">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="60"
+                        height="60"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-bar-chart-3"
+                        aria-hidden="true"
+                    >
+                        <path d="M3 3v18h18"/>
+                        <path d="M18 17V9"/>
+                        <path d="M13 17V5"/>
+                        <path d="M8 17v-3"/>
+                    </svg>
+                </div>
+
+                <p class="empty-message">No summary generated yet</p>
+                <p class="empty-prompt">
+                    Click **"Generate New"** to get AI-powered insights
+                    on your active tasks and goals.
+                </p>
+            </div>
+
+              </div>
+            </div>
+            <div slot="tab" data-tab="history" class="tab">
+        <div class="card-content">
+            <div id="ai-history-list" class="ai-history-list">
+                <div class="ai-history-empty-state">
+                    <p class="empty-message">No history available</p>
+                    <p class="empty-prompt">Generate your first AI Summary in the **Latest Summary** tab.</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+        </div>
+                </div>
+
+                </tab-content>
+
+              </div>
+            </div>
+          </tab-content>
+        </div>
+      </app-card>
     </main>
-</body>
+    <task-modal></task-modal>
+  </body>
 </html>

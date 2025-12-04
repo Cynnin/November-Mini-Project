@@ -26,6 +26,7 @@ input {
     &:focus {
         outline: none;
         border : 3px double var(--color-blue-500);
+        box-shadow: 0 0 0 2px var(--color-blue-200, rgba(59, 130, 246, 0.5));
         transition: box;
         filter: drop-shadow(var(--drop-shadow));
     }

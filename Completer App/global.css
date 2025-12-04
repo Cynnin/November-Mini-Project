@@ -49,6 +49,8 @@
   --color-purple-200: oklch(0.902 0.063 306.703);
   --color-purple-500: oklch(0.627 0.265 303.9);
   --color-purple-600: oklch(0.558 0.288 302.321);
+  --color-pink-600: oklch(.592 .249 .584);
+    --color-slate-50: oklch(.984 .003 247.858);
   --color-gray-50: oklch(0.985 0.002 247.839);
   --color-gray-100: oklch(0.967 0.003 264.542);
   --color-gray-200: oklch(0.928 0.006 264.531);
@@ -76,9 +78,7 @@
   --accent-foreground: #fff;
   --destructive: #ef4444;
   --destructive-foreground: #fff;
-  --border: #e2e8f0;
-  --input: transparent;
-  --input-background: #fff;
+  --background: #f8f9fa;
   --switch-background: #cbd5e1;
   --ring: #3b82f6;
   --chart-1: #3b82f6;
@@ -87,14 +87,6 @@
   --chart-4: #f59e0b;
   --chart-5: #10b981;
   --radius: 0.5rem;
-  --sidebar: #fff;
-  --sidebar-foreground: #1e293b;
-  --sidebar-primary: #3b82f6;
-  --sidebar-primary-foreground: #fff;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #1e293b;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #3b82f6;
   --spacing: 0.25rem;
   --container-md: 28rem;
   --container-lg: 32rem;
@@ -231,6 +223,15 @@ svg {
   flex-shrink: 0;
 }
 
+button, input, select, textarea {
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+}
+
 side-bar {
   grid-column: 1;
   padding: 0;
@@ -238,91 +239,106 @@ side-bar {
   height: 100%;
 }
 
-#dashboard-container {
-  overflow-y: auto;
-  padding: calc(var(--spacing) *8);
-  grid-column: 2;
-}
-
-.header-subtitle {
-  font-size: 16px;
-  color: oklch(0.551 0.027 264.364);
-  margin-bottom: calc(var(--spacing) * 16);
-}
-
-.smallcards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: calc(var(--spacing) * 8);
-   margin-bottom: calc(var(--spacing) * 8);
-}
-
-.bigcards-container {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: calc(var(--spacing) * 8);
-  margin-top: calc(var(--spacing) * 8);
-}
-
-.card-header {
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  margin-bottom: calc(var(--spacing) * 2);
-}
-
-/*Container for the card name and icon*/
-.title-icon {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 15);
-}
-
-/*For the card name*/
-.card-title {
-  color: var(--color-gray-600);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--text-lg);
-  line-height: var(--text-sm--line-height);
-  text-align:center;
-  white-space: nowrap;
-  gap: calc(var(--spacing) * 5);
-}
-
-/*For the svg and their background+position*/
-.card-icon {
-  background-color: var(--color-blue-600);
-  border-radius: var(--radius);
+side-bar .sidebar.collapsed nav-component {
   justify-content: center;
   align-items: center;
+  padding-left: 8px;
   width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  display: flex;/*If I can finally manage to push the icons to the right*/
-
-  svg {
-    color: var(--color-white);
-    width: 60%;
-    height: 100%;
-  }
+  font-size: 0;
+  margin-left: 16px;
 }
 
-.card-body {
-  flex: 1;
+.general-header {
+  padding: calc(var(--spacing) * 6);
+  background-color: var(--color-gray-50);
+  border-bottom: var(--border-style);
+  border-bottom-width: 1px;
+  border-color: var(--border);
 }
 
-.card-text-large {
-  font-weight: var(--font-weight-bold);
-  font-size: var(--text-2xl);
-  line-height: var(--text-2xl--line-height);
-  margin-bottom: calc(var(--spacing) * 0.5);
-  margin-top: calc(var(--spacing) * 17);
+.head-container {
+  gap:calc(var(--spacing) * 3);
+  align-items: centre;
+  display: flex;
 }
 
-.card-text-small {
+.gen-icon {
+  display: flex;
+  height: calc(var(--spacing) * 13);
+  width: calc(var(--spacing) * 13);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  box-shadow: var(--inset-shadow), var(--inset-ring-shadow), var(--ring-offset-shadow), var(--ring-shadow), var(--shadow);
+}
+
+.gen-title {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-2xl);
+    line-height: var(--text-lg--line-height);
+}
+
+.gen-sub {
   color: var(--color-gray-500);
-  font-size: var(--text-sm);
-  line-height: var(--text-sm--line-height);
-  margin-top: calc(var(--spacing) * 1);
+  font-size: var(--text-lg);
+  line-height: var(--text-lg--line-height);
 }
 
+.gen-container {
+  padding: calc(var(--spacing) * 6);
+}
+
+.svg-background {
+  color: var(--color-gray-500);
+  text-align: center;
+  padding-block: calc(var(--spacing) * 8);
+
+    svg {
+      color: var(--color-gray-300);
+      width: calc(var(--spacing) * 12);
+      height: calc(var(--spacing) * 12);
+      margin-bottom: calc(var(--spacing) * 3);
+      margin-inline: auto;
+    }
+}
+
+my-button[data-variant="icon-danger"] {
+    --button-color: #ff4757;
+    --button-background-color: transparent;
+    --button-border-color: transparent;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+my-button[data-variant="icon-danger"] svg {
+    color: var(--button-color); 
+}
+
+my-button[data-variant="icon-danger"]:hover {
+    --button-background-color: rgba(255, 71, 87, 0.1); /* Light Red/Pink tint */
+}
+
+.priority-tag {
+    display: inline-flex;
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    width: 100%;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+.priority-tag.high {
+    background-color: var(--color-red-600);
+}
+
+.priority-tag.medium {
+    background-color: var(--chart-4);
+}
+
+.priority-tag.low {
+    background-color: var(--color-green-600);
+}

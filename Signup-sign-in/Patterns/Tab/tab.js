@@ -8,7 +8,20 @@ export class Tab extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
         
-        <link rel="stylesheet" href="./Patterns/Tab/tab.css"/>
+        <style>
+        .content-container {
+                    padding-bottom: calc(var(--spacing) * 6);
+                    padding-inline: calc(var(--spacing) * 6);
+               }
+
+        .inner-container {
+                gap:calc(var(--spacing) * 2);
+                display:flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+             }
+        </style>
         
           <div class="content-container">
               <slot name = "inner-container" class="inner-container">

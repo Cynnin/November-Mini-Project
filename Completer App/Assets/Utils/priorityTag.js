@@ -1,21 +1,32 @@
 //Priority tag for task importance
-export function getPriorityTag(priority) {
-    let tag = '';
-    switch (priority) {
+export function getPriorityTag(priority, isDashboard = false) {
+   
+    const p = (priority && priority.toLowerCase()) || 'none';
+    
+    let className;
+
+    switch (p) {
         case 'high':
-            tag = '<span class="priority-tag high">High Priority</span>';
+            className = 'high';
             break;
         case 'medium':
-            tag = '<span class="priority-tag medium">Medium Priority</span>';
+            className = 'medium';
             break;
         case 'low':
-            tag = '<span class="priority-tag low">Low Priority</span>';
+            className = 'low';
             break;
         default:
-            tag = '<span class="priority-tag none">No Priority</span>';
+            className = 'none';
+            content = 'None'; 
     }
-    return tag;
+    
+    const dashboardClass = isDashboard ? ' priority-tag--dashboard' : '';
+    
+    const tagHTML = `<span class="priority-tag ${className}${dashboardClass}">${p}</span>`;
+
+    return tagHTML;
 }
+
 export function setPriorityTag(element, priority) {
     const tagHTML = getPriorityTag(priority);
     element.innerHTML = tagHTML;

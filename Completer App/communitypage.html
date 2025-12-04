@@ -5,11 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script type="module" src="./global.js" defer="defer"></script>
     <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./Assets/CSS/communitypage.css">
     <title>Community</title>
 </head>
 <body>
-    <main>
-        Coming soon...
+     <main class="task-content">
+      <app-card>
+        <div class="general-header">
+          <div class="head-container">
+            <div class="gen-icon dos">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-5 w-5 flex-shrink-0" aria-hidden="true" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div class="general-text">
+              <div class="gen-title">Community Board</div>
+              <div class="gen-sub">Collaborate with your team</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gen-container">
+            <div>
+                <app-card data-variant="chatcard">
+                    <div class="card-content">
+                        <form>
+                            <div class="chat-container">
+                                <span class="user-icon" id="user-icon">
+
+                                </span>
+                                <div class="chat-post">
+                                    <textarea name="chat" id="chat-message-input" placeholder="Share an update, ask for help, or celebrate a win...(Mention @comsq to get AI help)">
+
+                                    </textarea>
+                                </div>
+                                <div class="button-area">
+                                    <my-button data-variant="send" id="send-message-btn">
+                                         <div class="test">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4 mr-2" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                      <div class="text-wrapper">Post</div>
+                    </div>
+                                    </my-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </app-card>
+
+                <app-card data-variant="chat-graycard">
+                    <div class="card-content" id="community-posts-list">
+                    <div class="svg-background">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none"><g id="Communication / Chat_Dots"><path id="Vector" d="M5.59961 19.9203L7.12357 18.7012L7.13478 18.6926C7.45249 18.4384 7.61281 18.3101 7.79168 18.2188C7.95216 18.1368 8.12328 18.0771 8.2998 18.0408C8.49877 18 8.70603 18 9.12207 18H17.8031C18.921 18 19.4806 18 19.908 17.7822C20.2843 17.5905 20.5905 17.2842 20.7822 16.9079C21 16.4805 21 15.9215 21 14.8036V7.19691C21 6.07899 21 5.5192 20.7822 5.0918C20.5905 4.71547 20.2837 4.40973 19.9074 4.21799C19.4796 4 18.9203 4 17.8002 4H6.2002C5.08009 4 4.51962 4 4.0918 4.21799C3.71547 4.40973 3.40973 4.71547 3.21799 5.0918C3 5.51962 3 6.08009 3 7.2002V18.6712C3 19.7369 3 20.2696 3.21846 20.5433C3.40845 20.7813 3.69644 20.9198 4.00098 20.9195C4.35115 20.9191 4.76744 20.5861 5.59961 19.9203Z" stroke="oklch(0.707 0.022 261.325)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+                          <p class="none">No posts yet. Be the first to share something!</p>
+                    </div>
+                </app-card>
+            </div>
+            </div>
         
     </main>
 </body>

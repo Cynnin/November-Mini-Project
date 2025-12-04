@@ -1,0 +1,293 @@
+.task-content {
+    padding: calc(var(--spacing) * 8);
+    overflow-y: auto;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.uno {
+    background-color: var(--color-blue-600);
+    color: var(--color-white);
+}
+
+.mute {
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    color: var(--muted-foreground);
+    padding: calc(var(--spacing) * 1);
+    background-color: var(--color-gray-100);
+    border-radius: calc(var(--spacing) + 5px);
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: calc(var(--spacing) * 12);
+    margin-bottom: calc(var(--spacing) * 6);
+}
+
+.tab {
+    display: none;
+    flex: 1;
+}
+
+.tab--active {
+    display: contents;
+    background-color: #e2e8f0;
+    flex: 1;
+}
+
+.button--active {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    filter: drop-shadow(var(var(--color-blue-100)));
+}
+
+.content-head {
+    justify-content:space-between;
+    align-items: center;
+    display: flex;
+    padding-bottom: calc(var(--spacing) * 6);
+    padding-top: calc(var(--spacing) * 6);
+}
+
+.task-info {
+    display: flex;
+    gap: calc(var(--spacing) * 4);
+}
+
+.task-counter {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.border {
+    background-color: var(--color-gray-200);
+    width: 1px;
+    height: calc(var(--spacing) * 12);
+    vertical-align: middle;
+}
+
+.task-count {
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-semibold);
+    font-size: 30px;
+    line-height: var(--text-base--line-height);
+}
+
+p {
+    color: var(--color-gray-500);
+    font-size: var(--text-lg);
+    line-height: var(--text-base--line-height);
+}
+
+.content-head my-button[data-variant = "action-button"]::part(button) {
+  display: flex;
+  flex-direction: row;
+  background: var(--color-blue-600);
+  color: var(--color-white);
+  outline-style: none;
+  padding-block: calc(var(--spacing) * 3);
+  padding-inline: calc(var(--spacing) * 4);
+  white-space: nowrap;
+  border-style: var(--border-style);
+  border-width: 1px;
+  border-color: var(--border);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.content-head my-button[data-variant = "generate-button"]::part(button) {
+  display: flex;
+  flex-direction: row;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  outline-style: none;
+  padding-block: calc(var(--spacing) * 3);
+  padding-inline: calc(var(--spacing) * 4);
+  white-space: nowrap;
+  border-style: var(--border-style);
+  border-width: 1px;
+  border-color: var(--border);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.test {
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+}
+
+.grn {
+    color: var(--color-green-600)
+}
+
+.card-content {
+    padding-bottom: calc(var(--spacing) * 6);
+    padding: calc(var(--spacing) * 8);
+    color: var(--card-foreground);
+    gap: calc(var(--spacing) * 8);
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.card-content .svg-background {
+    border-style: dashed;
+    border-color: var(--color-indigo-200);
+    background: linear-gradient(to bottom right in oklch, var(--color-gray-50), var(--color-indigo-50));
+    border-width: 2px;
+    border-radius: calc(var(--spacing) + 4px);
+}
+
+.card-content .svg-background svg {
+    color: var(--color-indigo-300);
+}
+
+.btn-icon {
+    display: flex;
+}
+
+/* For the AI Summary Tab */
+.ai-summary-content {
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+.ai-summary-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+    margin-top: 20px;
+    border: 2px var(--color-gray-200); 
+    border-radius: var(--radius-xl);
+}
+
+
+.ai-icon-wrapper svg {
+    color: var(--color-gray-300); 
+    margin-bottom: 20px;
+}
+
+.empty-message {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-700);
+    margin: 0;
+}
+
+.empty-prompt {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    margin-top: 8px;
+}
+
+.ai-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.ai-history-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+    margin-top: 20px;
+    border: 2px  var(--color-gray-200, #e5e7eb); 
+    border-radius: var(--radius-xl, 0.75rem);
+    min-height: 250px;
+}
+
+.ai-history-empty-state .empty-message {
+    font-size: var(--text-lg, 1.125rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--color-gray-700, #374151);
+    margin: 0;
+}
+
+.ai-history-empty-state .empty-prompt {
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--color-gray-500, #6b7280);
+    margin-top: 8px;
+}
+
+.ai-history-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: var(--color-white, #ffffff);
+    border: 1px solid var(--color-gray-100, #f3f4f6);
+    border-radius: var(--radius-lg, 0.5rem);
+    transition: all 0.2s ease;
+}
+
+.ai-history-card:hover {
+    border-color: var(--color-blue-300, #93c5fd);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+
+.history-meta {
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.history-title {
+    display: block;
+    font-weight: var(--font-weight-medium, 500);
+    font-size: var(--text-base, 1rem);
+    color: var(--color-gray-800, #1f2937);
+    margin-bottom: 4px;
+}
+
+.history-timestamp {
+    display: block;
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--color-gray-500, #6b7280);
+}
+
+.history-stats {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.stat-item {
+    font-size: var(--text-xs, 0.75rem);
+    font-weight: var(--font-weight-semibold, 600);
+    padding: 4px 8px;
+    border-radius: var(--radius-full, 9999px);
+    white-space: nowrap;
+}
+
+.active-stat {
+    background-color: var(--color-blue-100, #eff6ff);
+    color: var(--color-blue-600, #2563eb);
+}
+
+.completed-stat {
+    background-color: var(--color-green-100, #d1fae5);
+    color: var(--color-green-700, #047857);
+}
+
+.rate-stat {
+    background-color: var(--color-purple-100, #f3e8ff);
+    color: var(--color-purple-600, #7c3aed);
+}
+
+.view-history-detail {
+    flex-shrink: 0;
+}

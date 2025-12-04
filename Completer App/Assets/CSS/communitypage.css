@@ -1,0 +1,188 @@
+.dos {
+    color: var(--color-white);
+    background-color: var(--color-indigo-600);
+}
+
+.chat-container {
+    gap:calc(var(--spacing) * 3);
+    display: flex;
+    align-items: flex-start;
+}
+
+.chat-post {
+    flex: 1;
+    display: flex;
+}
+
+#chat-message-input {
+    display: flex;
+    font-size: var(--text-lg);
+    line-height: var(--text-lg);
+    padding-block: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 8);
+    background-color: var(--input-background);
+    border-color: var(--input);
+    border-style: var(--border-style);
+    border-width: 1px;
+    border-radius: calc(var(--radius) + 4px);
+    resize: none;
+    width: 100%;
+    vertical-align: top;
+    min-height: calc(var(--spacing) * 16);
+    field-sizing: content;
+    transition-property: color, box-shadow;
+    transition-timing-function: var(--default-transition-timing-function)
+cubic-bezier(.4, 0, .2, 1)
+;
+    transition-duration: var(--default-transition-duration);
+}
+
+#chat-message-input:focus {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px var(--color-blue-200);
+    outline: none;
+}
+
+.user-icon {
+width: calc(var(--spacing) * 15);
+height: calc(var(--spacing) * 15);
+border-radius: 50%;
+color: var(--color-white);
+font-weight: var(--font-weight-semibold);
+background-color: var(--color-blue-500);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+}
+
+.button-area {
+    justify-content: flex-end;
+    display: flex;
+    margin-top: calc(var(--spacing) * 22);
+  
+}
+
+.test {
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+}
+
+.chat-container my-button[data-variant = "send"]::part(button) {
+  display: flex;
+  flex-direction: row;
+  background: var(--color-blue-600);
+  color: var(--color-white);
+  outline-style: none;
+  padding-block: calc(var(--spacing) * 3);
+  padding-inline: calc(var(--spacing) * 4);
+  white-space: nowrap;
+  border-style: var(--border-style);
+  border-width: 1px;
+  border-color: var(--border);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+
+.community-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+}
+
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: calc(var(--spacing) * 2);
+}
+
+.post-header .user-icon {
+    width: calc(var(--spacing) * 15);
+    height: calc(var(--spacing) * 15);
+    font-size: var(--text-sm);
+    margin-right: calc(var(--spacing) * 3);
+    background: linear-gradient(to bottom right in oklch, var(--color-blue-500), var(--color-purple-500));
+    color: var(--color-white);
+}
+ 
+.post-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
+    font-size: var(--text-lg);
+    line-height: 1.2;
+}
+
+.post-author-wrapper {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+}
+
+.post-time {
+    font-size: var(--text-base);
+    color: var(--color-gray-500);
+}
+
+.post-text {
+    font-size: var(--text-lg);
+    color: var(--color-gray-700);
+    margin: 0;
+    padding-left: calc(var(--spacing) * 13); 
+    white-space: pre-wrap; 
+}
+
+.svg-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--spacing) * 10) 0;
+    text-align: center;
+    background-color: var(--color-gray-50);
+    width: 100%;
+    height: 100%;
+}
+
+.svg-background svg {
+    margin-bottom: calc(var(--spacing) * 4);
+    width: 56px;
+    height: 46px;
+}
+
+.svg-background .none {
+    font-size: var(--text-lg);
+    color: var(--color-gray-500);
+    margin: 0;
+}
+
+
+
+.ai-post .post-header .user-icon {
+    background: linear-gradient(to right in oklch, var(--color-pink-500), var(--color-purple-500)); 
+color: var(--color-white);
+}
+
+.user-icon.ai-variant {
+     background: linear-gradient(to bottom right in oklch, var(--color-purple-600), var(--color-pink-600)); 
+}
+
+.ai-assistant-badge {
+    background: linear-gradient(to right in oklch, var(--color-purple-600), var(--color-pink-600)); 
+    color: var(--color-white);
+    font-size: var(--text-sm); 
+    font-weight: var(--font-weight-medium);
+    padding-block: calc(var(--spacing) * .5); 
+    padding-inline: calc(var(--spacing) * 2);
+    border-radius: calc(var(--radius));
+   width: fit-content;
+   display: inline-flex;
+   gap: calc(var(--spacing) * 1);
+}

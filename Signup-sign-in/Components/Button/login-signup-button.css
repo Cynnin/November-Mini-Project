@@ -1,6 +1,5 @@
 :host {
      width: auto;
-     display: inline-flex;
 }
 
 .button {
@@ -51,7 +50,7 @@
  }
 
 
-/* Hover / focus styles and transitions for button inside shadow DOM */
+/*Hover / focus styles and transitions for button inside shadow DOM */
 .variant-help:hover, .variant-next:hover
 .button:focus,
 .button:focus-visible {
@@ -68,14 +67,14 @@
     outline: 2px solid transparent;
 }
 
-/* Slightly darken variant-next on hover/focus */
+/*Slightly darken variant-next on hover/focus */
 .variant-next:hover,
 .variant-next:focus,
 .variant-next:focus-visible {
     filter: brightness(0.96);
 }
 
-/* Smooth transitions for interactions */
+/*Smooth transitions for interactions */
 .button {
     transition: transform 160ms cubic-bezier(.4,0,.2,1), filter 160ms linear, box-shadow 160ms linear;
 }

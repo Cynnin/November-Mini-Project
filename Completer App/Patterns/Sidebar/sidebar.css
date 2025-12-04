@@ -1,298 +1,241 @@
 /* Basic sidebar layout and host styles */
 .sidebar {
-  height: 100%;
-  background-color: var(--color-white);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5px 1em;
-  width: 100%;
-  box-sizing: border-box;
-  text-wrap: nowrap;
-  overflow: hidden;
-  transition: width 300ms ease-in-out;
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+height: 100%;
+background-color: var(--color-white);
+border-right: 1px solid var(--border);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 5px 1em;
+width: 100%;
+box-sizing: border-box;
+white-space: nowrap;
+overflow: hidden;
+transition: width 300ms ease-in-out;
 }
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 4);
-  border-bottom-width: 1px;
-  border-bottom-style: var(--border-style);
 
-  h1 {
-    color: var(--color-gray-900);
-    font-weight: var(--font-weight-bold);
-    font-size: 16px;
-    transition: opacity 300ms ease-in-out;
-  }
+.sidebar-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: calc(var(--spacing) * 4);
+border-bottom-width: 1px;
+border-bottom-style: var(--border-style);
+border-color: var(--border);
+}
+
+.sidebar-header h1 {
+color: var(--color-grey-900);
+font-weight: var(--font-weight-bold);
+font-size: 16px;
+transition: opacity 300ms ease-in-out;
 }
 
 .logo-and-title {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 3);
-  overflow: hidden;
+display: flex;
+align-items: center;
+gap: calc(var(--spacing) * 3);
+overflow: hidden;
 }
 
 /* For the logo section */
 .logo-container {
-  display: flex;
-  background: linear-gradient(
-    30deg in oklch,
-    var(--color-blue-600),
-    var(--color-indigo-600)
-  );
-  border-radius: var(--radius);
-  justify-content: center;
-  align-items: center;
-  width: calc(var(--spacing) * 13);
-  height: calc(var(--spacing) * 13);
+display: flex;
+background: linear-gradient(
+30deg in oklch,
+var(--color-blue-600),
+var(--color-indigo-600)
+);
+border-radius: var(--radius);
+justify-content: center;
+align-items: center;
+width: calc(var(--spacing) * 13);
+height: calc(var(--spacing) * 13);
+flex-shrink: 0;
+}
 
-  svg {
-    width: calc(var(--spacing) * 5);
-    height: calc(var(--spacing) * 5);
-    color: var(--color-white);
-  }
+.logo-container svg {
+width: calc(var(--spacing) * 7);
+height: calc(var(--spacing) * 7);
+color: var(--color-white);
 }
 
 /*Styling for collapse button and svg inside*/
 #collapse-button {
-  background: transparent;
-  border-radius: calc(var(--radius) - 2px);
-  justify-content: center;
-  align-items: center;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  gap: calc(var(--spacing) * 1.5);
-  display: inline-flex;
-  padding-inline: calc(var(--spacing) * 2.5);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--text-sm--line-height);
-  padding: var(--spacing);
-  transition: transform 300ms ease-in-out;
-  flex-shrink: 0;
+background: transparent;
+border-radius: calc(var(--radius) - 2px);
+justify-content: center;
+align-items: center;
+width: calc(var(--spacing) * 8);
+height: calc(var(--spacing) * 8);
+gap: calc(var(--spacing) * 1.5);
+display: inline-flex;
+padding-inline: calc(var(--spacing) * 2.5);
+font-weight: var(--font-weight-medium);
+font-size: var(--text-sm);
+line-height: var(--text-sm--line-height);
+padding: var(--spacing);
+transition: transform 300ms ease-in-out;
+flex-shrink: 0;
+}
 
-  svg {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
-    transition: transform 1500ms ease;
-  }
+#collapse-button svg {
+width: calc(var(--spacing) * 6);
+height: calc(var(--spacing) * 6);
+transition: transform 1500ms ease;
 }
 
 /*Collapse button cyan on hover*/
-#collapse-button:hover,
-svg :hover {
-  background-color: var(--accent);
-  color: var(--color-cyan-50);
+#collapse-button:hover {
+background-color: var(--accent);
+color: var(--color-cyan-50);
 }
 
-/*Rotate collapse icon when sidebar is collapsed*/
-#collapse-button.rotate {
-  transform: rotate(180deg);
+#collapse-button:hover svg {
+color: var(--color-cyan-50);
 }
 
-/* Add collapsed sidebar styles */
-.sidebar.collapsed {
-  width: 80px;
-  padding: 5px;
-}
-
-/*Hide text when sidebar is collapsed*/
-
-.sidebar.collapsed .logo-and-title {
-  display: none;
-}
-
-.sidebar.collapsed .nav-links my-button::part(button) {
-  justify-content: center;
-  align-items: center;
-  padding-left: 8px;
-  width: calc(var(--spacing) * 10);
-  font-size: 0;
-  margin-left: 16px;
-}
-
-.sidebar.collapsed .sidebar-footer my-button::part(button) {
-  justify-content: center;
-  padding-inline: calc(var(--spacing) * 2);
-  width: calc(var(--spacing) * 10);
-  font-size: 0;
-}
-
-.sidebar.collapsed .user-profile span {
-  opacity: 0;
-  pointer-events: none;
-  width: 0;
-  overflow: hidden;
-  transition: opacity 300ms ease-in-out;
-}
-
-/*Make user profile section flexbox to align items nicely*/
+/*Make user profile section flexbox to align items*/
 .user-profile {
-  padding: calc(var(--spacing) * 4);
-  border-bottom-style: var(--border-style);
-  border-bottom-width: 1px;
-  border-color: var(--border);
-  transition: justify-content 300ms ease-in-out;
+padding: calc(var(--spacing) * 4);
+border-bottom-style: var(--border-style);
+border-bottom-width: 1px;
+border-color: var(--border);
+transition: justify-content 300ms ease-in-out;
 }
 
 span.username {
-    font-size: 14px;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-gray-900);
-    line-height: var(--text-sm--line-height);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  transition: opacity 300ms ease-in-out, width 300ms ease-in-out;
+font-size: 14px;
+font-weight: var(--font-weight-medium);
+color: var(--color-gray-900);
+line-height: var(--text-sm--line-height);
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+transition: opacity 300ms ease-in-out, width 300ms ease-in-out;
 }
 
 span.user-email {
-  font-size: 12px;
-  color: oklch(0.551 0.027 264.364);
-    line-height: var(--text-xs--line-height);
-    text-overflow: ellipsis;
-    overflow: hidden;
-  white-space: nowrap;
-  transition: opacity 300ms ease-in-out, width 300ms ease-in-out;
+font-size: 12px;
+color: oklch(0.551 0.027 264.364);
+line-height: var(--text-xs--line-height);
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+transition: opacity 300ms ease-in-out, width 300ms ease-in-out;
 }
 
 /*Flex container for user icon and user info*/
 .user-info {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1);
-  overflow: hidden;
+display: flex;
+flex-direction: column;
+gap: calc(var(--spacing) * 1);
+overflow: hidden;
+/* Add transition for collapsing */
+transition: opacity 300ms ease-in-out, max-width 300ms ease-in-out;
 }
 
 /*For the user profile container*/
 .profile-container {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
+display: flex;
+align-items: center;
+gap: calc(var(--spacing) * 5);
 }
 
-/*Centre user icon when sidebar is collapsed*/
-.sidebar.collapsed .user-profile {
-  justify-content: center;
-}
-
-/* User icon styles */
+/*Styling the user icon*/
 .user-icon {
-  width: calc(var(--spacing) * 15);
-  height: calc(var(--spacing) * 15);
-  border-radius: 50%;
-  color: var(--color-white);
-  font-weight: var(--font-weight-semibold);
-  background: linear-gradient(
-    30deg in oklch,
-    var(--color-blue-600),
-    var(--color-indigo-600)
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+width: calc(var(--spacing) * 15);
+height: calc(var(--spacing) * 15);
+border-radius: 50%;
+color: var(--color-white);
+font-weight: var(--font-weight-semibold);
+background: linear-gradient(
+30deg in oklch,
+var(--color-blue-600),
+var(--color-indigo-600)
+);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
 }
 
-/* Push footer to the bottom */
+/*Push footer to the bottom */
 .sidebar-footer {
-  margin-top: auto;
-}
-
-/* Styles for sidebar navigation links */
-.nav-links my-button[data-variant="ghost"]::part(button) {
-  font-weight: var(--font-weight-medium);
-  font-size: 14px;
-  background-color: var(--background);
-  border: none;
-  height: calc(var(--spacing) * 9);
-  line-height: var(--text-lg--line-height);
-  color: oklch(21.402% 0.02741 265.092 / 0.872);
-  width: 200px;
-  padding-inline: calc(var(--spacing) * 3);
-  padding-block: calc(var(--spacing) * 2);
-  gap: calc(var(--spacing) * 5);
-  text-decoration: none;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 4px;
-  transition: transform 160ms cubic-bezier(0.4, 0, 0.2, 1), filter 160ms linear,
-    box-shadow 160ms linear;
-    word-spacing: 12px;
-
-    svg {
-        padding: 5px;
-    }
+margin-top: auto;
+margin-bottom: calc(var(--spacing) * 5);
+border-top: 1px solid var(--border);
 }
 
 hr {
-  height: 0;
-  color: inherit;
-  border-top-width: 1px;
+height: 0;
+color: inherit;
+border-top-width: 1px;
 }
 
 /*Make the sidebar footer text red for logout button*/
 .sidebar-footer my-button[data-variant="ghost"]::part(button) {
-  color: var(--color-red-600);
-}
-
-/* Make active list item have different active effects*/
-#dashboard-link my-button.active::part(button) {
-  background-color: var(--color-indigo-50);
-  color: var(--color-indigo-600);
-}
-
-#tasks-link my-button.active::part(button) {
-  background-color: var(--color-blue-50);
-  color: var(--color-blue-600);
-}
-
-#community-link my-button.active::part(button) {
-  background-color: var(--color-purple-50);
-  color: var(--color-purple-600);
-}
-
-#expenses-link my-button.active::part(button) {
-  background-color: var(--color-cyan-50);
-  color: var(--color-cyan-600);
-}
-
-#notes-link my-button.active::part(button) {
-  background-color: var(--color-emerald-50);
-  color: var(--color-emerald-400);
-}
-#settings-link my-button.active::part(button) {
-  background-color: var(--color-gray-50);
-  color: var(--color-gray-600);
-}
-
-/* Hover and focus default */
-.nav-links my-button::part(button):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-  background-color: var(--color-gray-100);
-  color: var(--color-white);
+color: var(--color-red-600);
+gap: calc(var(--spacing) * 13);
+margin-top: calc(var(--spacing) * 5);
+justify-content: flex-start;
+padding-left: 13px;
+font-weight: 500;
+font-size: 14px;
+align-items: center;
 }
 
 /*Hover and focus for logout button */
 .sidebar-footer my-button::part(button):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-  background-color: var(--color-red-50);
-  color: var(--color-red-700);
+transform: translateY(-1px);
+box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+background-color: var(--color-red-50);
+color: var(--color-red-700);
 }
 
 /* Ensure smooth transitions if the inner .button supports them */
 .nav-links my-button::part(button) {
-  transition: transform 160ms cubic-bezier(0.4, 0, 0.2, 1), filter 160ms linear,
-    box-shadow 160ms linear;
+transition: transform 160ms cubic-bezier(0.4, 0, 0.2, 1), filter 160ms linear,
+box-shadow 160ms linear;
+}
+
+/* --- COLLAPSE STYLES --- */
+
+/*Add collapsed sidebar styles*/
+.sidebar.collapsed {
+width: 80px;
+padding: 5px;
+}
+
+/*To hide the logo and title*/
+.sidebar.collapsed .logo-and-title {
+display: none;
+}
+
+/*To position the collapse button*/
+.sidebar.collapsed .sidebar-header {
+justify-content: flex-end;
+}
+
+/*To hide user info*/
+.sidebar.collapsed .user-info {
+display: none;
+}
+
+/*To center user profile content*/
+.sidebar.collapsed .user-profile .profile-container {
+justify-content: center;
+}
+
+/*To hide the logout text*/
+.sidebar.collapsed .sidebar-footer my-button::part(button) {
+justify-content: center;
+padding-inline: calc(var(--spacing) * 2);
+width: calc(var(--spacing) * 10);
+font-size: 0; 
+}
+
+/*To rotate collapse icon when sidebar is collapsed*/
+#collapse-button.rotate {
+transform: rotate(180deg);
 }

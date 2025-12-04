@@ -1,0 +1,244 @@
+
+
+#dashboard-container {
+  overflow-y: auto;
+  padding: calc(var(--spacing) *8);
+  grid-column: 2;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  color: oklch(0.551 0.027 264.364);
+  margin-bottom: calc(var(--spacing) * 16);
+}
+
+.smallcards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: calc(var(--spacing) * 8);
+   margin-bottom: calc(var(--spacing) * 8);
+}
+
+.bigcards-container {
+  display: grid;
+  gap: calc(var(--spacing) * 6);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: calc(var(--spacing) * 8);
+  margin-top: calc(var(--spacing) * 8);
+}
+
+.card-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+/*Container for the card name and icon*/
+.title-icon {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 5);
+  justify-content: space-between;
+}
+
+/*For the card name*/
+.card-title {
+  color: var(--color-gray-600);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-lg);
+  line-height: var(--text-sm--line-height);
+  text-align:center;
+  white-space: nowrap;
+  gap: calc(var(--spacing) * 5);
+}
+
+/*For the svg and their background+position*/
+.card-icon {
+  background-color: var(--color-blue-600);
+  border-radius: var(--radius);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
+  display: flex;/*If I can finally manage to push the icons to the right*/
+
+  svg {
+    color: var(--color-white);
+    width: 60%;
+    height: 100%;
+  }
+
+  &.cyan {
+    background-color: var(--color-cyan-600);
+  }
+
+  &.emerald {
+    background-color: var(--color-green-600);
+  }
+
+  &.indigo {
+    background-color: var(--color-indigo-600);
+  }
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-text-large {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+  margin-bottom: calc(var(--spacing) * 0.5);
+  margin-top: calc(var(--spacing) * 17);
+}
+
+.card-text-small {
+  color: var(--color-gray-500);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  margin-top: calc(var(--spacing) * 1);
+}
+
+/*Moving on to the big cards*/
+/*For the card title, and svg*/
+
+.big-card-title {
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  color: oklch(27.95% 0.03688 260.049);
+  line-height: 1;
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  display:flex;
+       
+  svg {
+    color: var(--color-blue-600);
+    height: calc(var(--spacing) * 5);
+    width: calc(var(--spacing) * 5);
+  }
+}
+
+
+.card my-button[data-variant = "empty-button"]::part(button) {
+  display: flex;
+  background: var(--background);
+  outline-style: none;
+  line-height: var(--text-lg--line-height);
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: calc(var(--spacing) * 4);
+  white-space: nowrap;
+  border-style: var(--border-style);
+  border-width: 1px;
+  border-color: var(--border);
+  border-radius: calc(var(--spacing) - 2px);
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: calc(var(--spacing) * 5);
+  width: 100%;
+  height: auto;
+}
+
+ .card my-button[data-variant = "empty-button"]::part(button):hover {
+      background: var(--accent);
+      color: var(--color-cyan-50);
+    }
+
+my-button::part(button) .small-button-text:hover {  
+  color: var(--color-gray-500);  
+}
+
+.test {
+  display: flex;
+  gap: calc(var(--spacing) * 5);
+}
+
+.button-icon {
+  border-radius: var(--radius);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 13);
+  height: calc(var(--spacing) * 13);
+  display: flex;
+ 
+  
+
+      &.one {
+        color: var(--color-blue-600);
+        background-color: var(--color-blue-100);
+      }
+
+      &.two {
+          color: var(--color-cyan-600);
+          background-color: var(--color-cyan-100);
+      }
+
+      &.three {
+        color: var(--color-green-600);
+        background-color: var(--color-green-100);
+      }
+
+      svg {
+        width: calc(var(--spacing) * 6);
+        height: calc(var(--spacing) * 6);
+        pointer-events: none;  
+      }
+}  
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-text {
+  text-align: left;
+  margin-bottom: 5px;
+  line-height: var(--text-2xl--line-height);
+  align-items: center;
+  justify-content: center;
+  font-weight: 560;
+  color: rgba(59, 61, 65, 0.858);
+}
+
+.small-button-text {
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray-500);
+  font-size: var(--text-base);
+  line-height: var(--text-sm--line-height);
+}
+
+app-card.small:hover {
+    background-color: var(--color-gray-50);
+       transform: translateY(-1px);
+        box-shadow: 0 10px 10px rgba(16, 24, 40, 0.09);
+        border-color: transparent;
+}
+
+app-card.card:hover {
+  border-color: transparent;
+}
+
+.priority-tag--dashboard.medium {
+      color: var(--color-yellow-600);
+      border-color: var(--color-yellow-200);
+      background-color: var(--color-yellow-50);
+      border-style: var(--border-style);
+      border-width: 1px;
+}
+
+.priority-tag--dashboard.high {
+      color: var(--color-red-600);
+      border-color: var(--color-red-200);
+      background-color: var(--color-red-50);
+      border-style: var(--border-style);
+      border-width: 1px;
+}
+
+.priority-tag--dashboard.low {
+      color: var(--color-green-600);
+      border-color: var(--color-green-200);
+      background-color: var(--color-green-50);
+      border-style: var(--border-style);
+      border-width: 1px;
+}

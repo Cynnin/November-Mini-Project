@@ -4,9 +4,10 @@
     border-width: 1px;
     border-radius: var(--radius);
     border-color: var(--border);
-    gap:calc(var(--spacing) * 3);
+    gap:calc(var(--spacing) * 6);
     align-items: center;
     display: flex;
+    justify-content: flex-start;
     margin-bottom: calc(var(--spacing) * 8);
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --gradient-from, --gradient-via, --gradient-to;
     transition-timing-function: var(--ease, var(--default-transition-timing-function));
@@ -14,7 +15,8 @@
 }
 
 .task-card:hover {
-    background-color: var(--color-gray-50);
+       transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
 }
 
 .task-content {
@@ -22,12 +24,6 @@
     min-width: var(--spacing);
 }
 
-svg {
-    color: var(--color-gray-400);
-    flex-shrink: 0;
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
-}
 
 .task-title {
     font-size: var(--text-lg);
@@ -36,6 +32,14 @@ svg {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    gap: calc(var(--spacing) * 8);
+}
+
+.task-description {
+    font-size: var(--text-lg);
+    color: var(--color-gray-500);
+    margin: 0 0 calc(var(--spacing) * 2) 0;
+    display: block;
 }
 
 .task-due-date {
@@ -43,4 +47,80 @@ svg {
     font-size: var(--text-base);
     line-height: var(--text-sm--line-height);
 }
+
+
+.task-card slot[name="priority"] {
+    margin-left: auto;
+}
+
+/* --- Complete Circle Icons --- */
+
+.icon-checked { 
+    display: none; 
+}
+
+.icon-empty { 
+    display: block; 
+}
+
+.complete-circle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.complete-circle .icon-empty:hover {
+    color: var(--color-green-500);
+}
+
+.complete-circle .icon-empty {
+    color: var(--color-gray-400); 
+    stroke-width: 1.5;
+}
+
+/* --- Completed Styles --- */
+
+:host([data-status="completed"]) .task-title,
+:host([data-status="completed"]) .task-description,
+:host([data-status="completed"]) .task-due-date {
+    text-decoration: line-through; 
+    color: var(--color-gray-400, #9ca3af); 
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+:host([data-status="completed"]) .icon-checked { 
+    display: block; 
+    color: var(--color-green-500); 
+    stroke-width: 2; 
+}
+
+:host([data-status="completed"]) .icon-empty { 
+    display: none; 
+}
+
+:host([data-status="completed"]) ::slotted(div[slot="priority"] *) {
+    opacity: 0.5;
+}
+
+/* --- Dashboard card styles --- */
+.task-card.task-card--dashboard {
+       color: var(--card);
+}
+
+.task-card.task-card--dashboard .task-description {
+    display: none;
+}
+
+.task-card.task-card--dashboard slot[name="discard"] {
+    display: none;
+}
+
+.task-card.task-card--dashboard:hover {
+    background-color: var(--color-gray-50);
+       transform:none;
+        box-shadow: none;
+}
+
 /*Css is my weakness, for real*//*Delete this before submitting*/

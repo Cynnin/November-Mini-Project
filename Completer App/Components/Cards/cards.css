@@ -11,7 +11,25 @@
     padding: calc(var(--spacing) * 8);
     min-height: var(--card-height);
     margin-bottom: calc(var(--spacing) * 2);
-    transition-property: box-shadow;
-    transition-duration: var(--duration, var(--default-transition-duration));
-    transition-timing-function: var(--ease, var(--default-transition-timing-function));
+    
+}
+
+.variant-colourcard {
+   border: none;
+}
+
+.variant-chatcard {
+     margin-bottom: calc(var(--spacing) * 5);
+     
+}
+
+.variant-chat-graycard {
+    background-color: transparent;
+     margin-bottom: calc(var(--spacing) * 5);
+     border: none;
+     padding: 0;
+}
+
+.variant-ai-post {
+    background-color: var(--color-purple-50);
 }

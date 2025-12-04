@@ -10,25 +10,40 @@ export class Button extends HTMLElement {
 
        const icon = this.getAttribute("data-icon");
        const variant = this.getAttribute("data-variant");
-       // Accept either `href` (preferred) or legacy `data-href`
+       //To accept either href or data-href
        const href = this.getAttribute('href') || this.getAttribute('data-href');
-             // Render an anchor when href is present, otherwise a button element.
-             // Load the component CSS from the module-relative path so it resolves correctly
-             // regardless of the page that imports this module.
-             const cssHref = new URL('./login-signup-button.css', import.meta.url).href;
-             const inner = `
-                <link rel="stylesheet" href="${cssHref}">
 
-                ${href ? `<a part="button" class="button ${variant ? `variant-${variant}` : ''}" href="${href}">` : `<button part="button" class="button ${variant ? `variant-${variant}` : ''}" type="button">`}
-                    ${ (icon && `<ion-icon name="${icon}"></ion-icon>`) || "" }
-                    <span class="label"><slot></slot></span>
-                ${href ? `</a>` : `</button>`}
-             `;
+
+             //Different situations for the buttons
+             const type = this.getAttribute('type') || 'button';
+               const cssHref = new URL('./login-signup-button.css', import.meta.url).href;
+
+    const inner = `
+      <link rel="stylesheet" href="${cssHref}">
+            <div class="button-wrapper" variant="${variant || ''}">
+        ${href ? `<a part="button" class="button ${variant ? `variant-${variant}` : ''}" href="${href}">` : `<button part="button" class="button ${variant ? `variant-${variant}` : ''}" type="${type}">`}
+          ${(icon && `<ion-icon name="${icon}"></ion-icon>`) || ""}
+          <span class="label"><slot></slot></span>
+        ${href ? `</a>` : `</button>`}
+        <slot name="navigation"></slot>
+      </div>
+    `;
 
              this.shadowRoot.innerHTML = inner;
 
-             // Fallback: if the <link> fails to load (network/CORS issues), fetch the CSS
-             // and inject it into the shadow root as a <style> so the component stays styled.
+     const internalButton = this.shadowRoot.querySelector('button');
+
+     if (internalButton && this.getAttribute('type') === 'submit') {
+        internalButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            this.dispatchEvent(new CustomEvent('submit', {
+                bubbles: true,
+                composed: true
+            }));
+        });
+     }
+             
              const linkEl = this.shadowRoot.querySelector('link[rel="stylesheet"]');
              if (linkEl) {
                  linkEl.addEventListener('error', async () => {
@@ -39,22 +54,22 @@ export class Button extends HTMLElement {
                          const styleEl = document.createElement('style');
                          styleEl.textContent = cssText;
                          this.shadowRoot.appendChild(styleEl);
-                         // remove the failing link so there's no duplicate attempt
+                         //To remove the failing link so there are no multiple attempts
                          linkEl.remove();
                      } catch (err) {
-                         // swallow errors - best-effort fallback
-                         // console.debug('Button CSS fallback failed', err);
+                         //To swallow errors
                      }
                  }, { once: true });
              }
 
-             // Mirror the variant as a host-class so external (light DOM) CSS can target via ::part
+             //To target through external css with ::part
              if (variant) {
                  this.classList.add(`variant-${variant}`);
              }
+           
     }
+  
+}   
 
-    
-}
 
 
