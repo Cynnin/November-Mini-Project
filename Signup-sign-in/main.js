@@ -282,6 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector('[data-tab="login"] form');
     const signupForm = document.querySelector('[data-tab="logup"] form');
     
+    console.log('forms found:', !!loginForm, !!signupForm);
+
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
     }

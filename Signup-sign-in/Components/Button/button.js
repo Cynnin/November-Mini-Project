@@ -33,14 +33,25 @@ export class Button extends HTMLElement {
 
      const internalButton = this.shadowRoot.querySelector('button');
 
-     if (internalButton && this.getAttribute('type') === 'submit') {
+     if (internalButton) {
         internalButton.addEventListener('click', (e) => {
             e.preventDefault();
+
+            console.log('button clicked!');
+
+            const form = this.closest('form');
+
+            if (form) {
+
+                form.requestSubmit();
+
+            } else {
 
             this.dispatchEvent(new CustomEvent('submit', {
                 bubbles: true,
                 composed: true
             }));
+        }
         });
      }
              
